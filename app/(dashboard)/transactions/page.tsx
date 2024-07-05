@@ -14,11 +14,12 @@ import { DataTable } from "@/components/data-table";
 import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
 import { useBulkDeleteAccount } from "@/features/accounts/api/use-bulk-delete-accounts";
 import { Skeleton } from "@/components/ui/skeleton";
+import { useNewTransaction } from "@/features/transactions/hooks/use-new-transaction";
 
 
 
-const AccountsPage = () => {
-    const newAccount = useNewAccount();
+const TransactionsPage = () => {
+    const newTransaction = useNewTransaction();
     const deleteAccounts = useBulkDeleteAccount();
     const accountsQuery = useGetAccounts();
     const accounts = accountsQuery.data || [];
@@ -49,9 +50,9 @@ const AccountsPage = () => {
         <Card className="broder-none drop-shadow-sm">
             <CardHeader className="gep-y-2 lg:flex-row lg:items-center lg:justify-between">
                <CardTitle className="text-xl line-clamp-1">
-                   Transactions page
+                   Transactions History
                </CardTitle> 
-               <Button onClick={newAccount.onOpen} size="sm">
+               <Button onClick={newTransaction.onOpen} size="sm">
                 <Plus className="size-4 mr-2"/>
                 Add new
                </Button>
@@ -73,4 +74,4 @@ const AccountsPage = () => {
     );
 };
 
-export default AccountsPage;
+export default TransactionsPage;
