@@ -14,6 +14,7 @@ import {
     FormLabel,
     FormMessage
 } from "@/components/ui/form";
+import { Select } from "@/components/select";
 
 const formSchema = z.object({
     date: z.coerce.date(),
@@ -62,7 +63,7 @@ export const TransactionForm = ({
     });
 
     const handleSubmit = (values: FormValues) => {
-        onSubmit(values);
+        console.log({values});
     };
 
     const handleDelete = () => {
@@ -76,16 +77,22 @@ export const TransactionForm = ({
               className="space-y-4 pt-4"
               >
                <FormField
-                  name="name"
+                  name="accountId"
                   control={form.control}
                   render={({ field }) => (
                     <FormItem>
+                        <FormLabel>
+                            Account
+                        </FormLabel>
                         <FormControl>
-                            <Input
-                              disabled={disabled}
-                              placeholder="e.g. Cash, Bank, Credit Card"
-                              {...field}
-                            />
+                            <Select
+                               placeholder="Select an account"
+                               options={accountOptions}
+                               onCreate={onCreateAccount}
+                               value={field.value}
+                               onChange={field.onChange}
+                               disabled={disabled}
+                               />
                         </FormControl>
                     </FormItem>
                   )}

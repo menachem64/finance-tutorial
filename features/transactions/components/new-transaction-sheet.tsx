@@ -45,7 +45,7 @@ export const NewTransactionSheet = () => {
     const onCreateAccount = (name: string) => accountMutation.mutate({
       name
     });
-    const accountOptions = (categoryQuery.data ?? []).map((category) => ({
+    const accountOptions = (accountQuery.data ?? []).map((category) => ({
       label: category.name,
       value: category.id,
     }));

@@ -29,9 +29,26 @@ export const Select = ({
 
     const formattedValue = useMemo(() => {
         return options?.find((option) => option.value === value);
-    });
+    }, [options, value]);
 
     return (
-        <CreateableSelect/>
-    )
-};
+        <CreateableSelect
+          placeholder={placeholder}
+          className="text-sm h-10"
+          styles={{
+            control: (base) => ({
+                ...base,
+                borderColor: "#e2e8f0",
+                ":hover": {
+                    borderColor: "#e2e8f0",
+                },
+            })
+          }}
+          value={formattedValue}
+          onChange={onSelect}
+          options={options}
+          onCreateOption={onCreate}
+          isDisabled={disabled}
+        />
+    );
+}
