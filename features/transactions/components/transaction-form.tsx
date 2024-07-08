@@ -15,6 +15,7 @@ import {
     FormMessage
 } from "@/components/ui/form";
 import { Select } from "@/components/select";
+import { DatePicker } from "@/components/data-picker";
 
 const formSchema = z.object({
     date: z.coerce.date(),
@@ -76,6 +77,23 @@ export const TransactionForm = ({
               onSubmit={form.handleSubmit(handleSubmit)}
               className="space-y-4 pt-4"
               >
+
+                <FormField
+                  name="date"
+                  control={form.control}
+                  render={({ field }) => (
+                    <FormItem>
+                        <FormControl>
+                            <DatePicker
+                               value={field.value}
+                               onChange={field.onChange}
+                               disabled={disabled}
+                               />
+                        </FormControl>
+                    </FormItem>
+                  )}
+               />
+
                <FormField
                   name="accountId"
                   control={form.control}
@@ -97,6 +115,48 @@ export const TransactionForm = ({
                     </FormItem>
                   )}
                />
+
+               <FormField
+                  name="categoryId"
+                  control={form.control}
+                  render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>
+                           Category
+                        </FormLabel>
+                        <FormControl>
+                            <Select
+                               placeholder="Select an category"
+                               options={categoryOptions}
+                               onCreate={onCreateCategory}
+                               value={field.value}
+                               onChange={field.onChange}
+                               disabled={disabled}
+                               />
+                        </FormControl>
+                    </FormItem>
+                  )}
+               />
+
+              <FormField
+                  name="payee"
+                  control={form.control}
+                  render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>
+                           payee
+                        </FormLabel>
+                        <FormControl>
+                            <Input
+                               placeholder="Add a payee"
+                               disabled={disabled}
+                               {...field}
+                               />
+                        </FormControl>
+                    </FormItem>
+                  )}
+               />
+
                <Button className="w-full" disabled={disabled}>
                    {id ? "Save changes" : "Create account"}
                </Button>
