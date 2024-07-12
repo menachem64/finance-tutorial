@@ -17,6 +17,8 @@ import {
 import { Select } from "@/components/select";
 import { DatePicker } from "@/components/data-picker";
 import { Textarea } from "@/components/ui/textarea";
+import { AmountInput } from "@/components/amount-input";
+import { convertAmountToMiliunits } from "@/lib/utils";
 
 const formSchema = z.object({
     date: z.coerce.date(),
@@ -65,7 +67,13 @@ export const TransactionForm = ({
     });
 
     const handleSubmit = (values: FormValues) => {
-        console.log({values});
+        const amount = parseFloat(values.amount);
+        const amountInMiliunits = convertAmountToMiliunits(amount);
+        
+        onSubmit({
+             ...values,
+             amount: amountInMiliunits,
+        })
     };
 
     const handleDelete = () => {
@@ -158,7 +166,26 @@ export const TransactionForm = ({
                   )}
                />
 
-<FormField
+               <FormField
+                  name="amount"
+                  control={form.control}
+                  render={({ field }) => (
+                    <FormItem>
+                        <FormLabel>
+                           amount
+                        </FormLabel>
+                        <FormControl>
+                            <AmountInput
+                               {...field}
+                               disabled={disabled}
+                               placeholder="0.00"
+                               />
+                        </FormControl>
+                    </FormItem>
+                  )}
+               />
+
+                <FormField
                   name="notes"
                   control={form.control}
                   render={({ field }) => (
@@ -179,7 +206,7 @@ export const TransactionForm = ({
                />
 
                <Button className="w-full" disabled={disabled}>
-                   {id ? "Save changes" : "Create account"}
+                   {id ? "Save changes" : "Create transaction"}
                </Button>
                {!!id && (<Button
                  type="button"
@@ -189,7 +216,7 @@ export const TransactionForm = ({
                  variant="outline"
                >
                 <Trash className="size-4 mr-2"/>
-                Delete account
+                Delete transaction
                </Button>
               )}
 
