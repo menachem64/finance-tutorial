@@ -8,7 +8,7 @@ import { InferResponseType } from "hono"
 import { client } from "@/lib/hono"
 import { Actions } from "./actions"
 
-export type ResponseType = InferResponseType<typeof client.api.accounts.$get, 200>["data"][0];
+export type ResponseType = InferResponseType<typeof client.api.transactions.$get, 200>["data"][0];
 
 export const columns: ColumnDef<ResponseType>[] = [
   {
@@ -34,14 +34,14 @@ export const columns: ColumnDef<ResponseType>[] = [
     enableHiding: false,
   },
   {
-    accessorKey: "name",
+    accessorKey: "date",
     header: ({ column }) => {
         return (
           <Button
             variant="ghost"
             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
           >
-            Name
+            Date
             <ArrowUpDown className="ml-2 h-4 w-4" />
           </Button>
         )
