@@ -11,7 +11,7 @@ import {
 import { Loader2, Plus } from "lucide-react";
 import { columns } from "./columns";
 import { DataTable } from "@/components/data-table";
-import { useGetAccounts } from "@/features/accounts/api/use-get-accounts";
+import { useGetTransactions } from "@/features/transactions/api/use-get-transaction";
 import { useBulkDeleteAccount } from "@/features/accounts/api/use-bulk-delete-accounts";
 import { Skeleton } from "@/components/ui/skeleton";
 import { useNewTransaction } from "@/features/transactions/hooks/use-new-transaction";
