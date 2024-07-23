@@ -6,7 +6,7 @@ import { toast } from "sonner";
 
 type ResponseType = InferResponseType<typeof client.api.transactions[":id"]["$delete"]>;
 
-export const useDeleteTransactions = (id?: string) => {
+export const useDeleteTransaction = (id?: string) => {
     const queryClient = useQueryClient();
 
     const mutation = useMutation<
