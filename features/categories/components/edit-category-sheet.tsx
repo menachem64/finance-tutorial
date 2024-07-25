@@ -27,7 +27,7 @@ export const EditCategorySheet = () => {
 
     const [ConfirmDialog, confirm] = useConfirm(
       "Are you sure?",
-      "You are about to delete this Category."
+      "You are about to delete this category."
     )
 
     const categoryQuery = useGetCategory(id);
@@ -71,10 +71,11 @@ export const EditCategorySheet = () => {
            <SheetContent className="space-y-4">
              <SheetHeader>
                <SheetTitle>
-                 Edit Category
+                 Edit category
                </SheetTitle>
                   <SheetDescription>
-                    Edit an existing category                  </SheetDescription>
+                    Edit an existing category                
+                  </SheetDescription>
               </SheetHeader>
               {isLoading
                 ? (

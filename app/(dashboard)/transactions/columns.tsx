@@ -83,7 +83,7 @@ export const columns: ColumnDef<ResponseType>[] = [
           <CategoryColumn
           id={row.original.id}
           category={row.original.category}
-          categoryId={row.original.category}
+          categoryId={row.original.categoryId}
           />
         )
       }
@@ -148,7 +148,7 @@ export const columns: ColumnDef<ResponseType>[] = [
         return (
           <AccountColumn
             account={row.original.account}
-            accountId={row.original.account}
+            accountId={row.original.accountId}
           />
         )
       }
