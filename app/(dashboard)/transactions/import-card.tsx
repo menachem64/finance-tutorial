@@ -7,6 +7,8 @@ import {
     CardTitle
 } from "@/components/ui/card";
 import { ImportTable } from "./import-table";
+import { convertAmountToMiliunits } from "@/lib/utils";
+import { format, parse } from "date-fns";
 
 const dateFormat = "yyyy-MM-dd HH:mm:ss";
 const outputFormat = "yyyy-MM-dd";
@@ -91,7 +93,16 @@ export const ImportCard = ({
 
                 return acc;
             }, {})
-        })
+        });
+
+        const formattedData = arrayOfData.map((item) => ({
+            ...item,
+            amount: convertAmountToMiliunits(parseFloat(item.amount)),
+            date: format(parse(item.date, dateFormat, new Date()), 
+            outputFormat)
+        }));
+
+        onSubmit(formattedData);
     };
 
     return (
