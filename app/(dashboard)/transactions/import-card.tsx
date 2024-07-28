@@ -102,6 +102,8 @@ export const ImportCard = ({
             outputFormat)
         }));
 
+      //  console.log({formattedData})
+
         onSubmit(formattedData);
     };
 
