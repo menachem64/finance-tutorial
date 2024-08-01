@@ -57,17 +57,17 @@ export const Chart = ({ data = [] }: Props) => {
                         </p>
                     </div>
                 </SelectItem>
-                <SelectItem value="Line">
+                <SelectItem value="bar">
                     <div className="flex items-center">
-                        <LineChart className="size-4 mr-2 shrink-0"/>
+                    <BarChart3 className="size-4 mr-2 shrink-0"/>
                         <p className="line-clamp-1">
-                            Line chart
+                            Bar chart
                         </p>
                     </div>
                 </SelectItem>
-                <SelectItem value="bar">
+                <SelectItem value="line">
                     <div className="flex items-center">
-                        <BarChart3 className="size-4 mr-2 shrink-0"/>
+                    <LineChart className="size-4 mr-2 shrink-0"/>
                         <p className="line-clamp-1">
                             Line chart
                         </p>
@@ -87,9 +87,9 @@ export const Chart = ({ data = [] }: Props) => {
                 </div>
             ) : (
                 <>
-                  {chartType === "line" && <AreaVariant data={data}/>}
-                  {chartType === "area" && <BarVariants data={data}/>}
-                  {chartType === "bar" && <LineVariant  data={data}/>}
+                  {chartType === "area" && <AreaVariant data={data}/>}
+                  {chartType === "bar" && <BarVariants data={data}/>}
+                  {chartType === "line" && <LineVariant  data={data}/>}
                 </>
             )}
         </CardContent>
