@@ -28,7 +28,7 @@ export default function RootLayout({
      <html lang="en">
      <Head>
        <title>{metadata.title}</title>
-       <meta name="description" content={metadata.description} />
+       <meta name="description" content="#1d4ed8" />
        <meta name="theme-color" content="#1d4ed8" />
        <link rel="icon" href={metadata.icons.icon} />
        <link rel="manifest" href="/manifest.json" />
