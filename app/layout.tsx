@@ -27,10 +27,11 @@ export default function RootLayout({
     <ClerkProvider>
      <html lang="en">
      <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <link rel="icon" href={metadata.icons.icon} />
-        <link rel="manifest" href="/manifest.json" />
+       <title>{metadata.title}</title>
+       <meta name="description" content={metadata.description} />
+       <meta name="theme-color" content="#3B82F6" />
+       <link rel="icon" href={metadata.icons.icon} />
+       <link rel="manifest" href="/manifest.json" />
       </Head>
       <body className={inter.className}>
         <QueryProvider>
