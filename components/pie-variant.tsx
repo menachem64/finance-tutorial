@@ -41,7 +41,7 @@ export const PieVariant = ({ data }: Props) => {
                                   style={{ backgroundColor: entry.color}}
                                 />
                                 <div className="space-x-1">
-                                    <span className="text-sm text-muted-foreground">
+                                    <span className="text-sm text-muted-foreground ml-1">
                                         {entry.value}
                                     </span>
                                     <span className="text-sm">
