@@ -16,6 +16,7 @@
   "dependencies": {
     "@clerk/backend": "^1.2.4",
     "@clerk/nextjs": "^5.2.2",
+    "@ducanh2912/next-pwa": "^10.2.8",
     "@hono/clerk-auth": "^2.0.0",
     "@hono/zod-validator": "^0.2.2",
     "@hookform/resolvers": "^3.6.0",
@@ -41,6 +42,7 @@
     "hono": "^4.4.10",
     "lucide-react": "^0.396.0",
     "next": "14.2.4",
+    "next-pwa": "^5.6.0",
     "next-themes": "^0.3.0",
     "node": "^20.15.0",
     "query-string": "^9.1.0",
@@ -59,6 +61,7 @@
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
     "tsx": "^4.15.7",
+    "workbox-webpack-plugin": "^7.1.0",
     "zod": "^3.23.8",
     "zustand": "^4.5.2"
   },
@@ -75,6 +78,7 @@
     "tailwindcss": "^3.4.1",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.5.4"
+    "typescript": "^5.5.4",
+    "webpack": "^5.93.0"
   }
 }
