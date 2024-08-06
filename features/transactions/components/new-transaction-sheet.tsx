@@ -75,7 +75,7 @@ export const NewTransactionSheet = () => {
                  New Transaction
                </SheetTitle>
                   <SheetDescription>
-                     add a new transactions
+                     add a new transaction
                   </SheetDescription>
               </SheetHeader>
               {isLoading
