@@ -57,7 +57,7 @@ const TransactionsPage = () => {
     const transactions = transactionsQuery.data || [];
 
     const handleExport = () => {
-      exportToExcel(transactions, 'finance_data')
+      exportToExcel(transactions, 'finance data')
     };
 
     const isDisabled = 
