@@ -22,6 +22,7 @@ import { transactions as transactionSchema } from "@/db/schema";
 import { useSelectAccount } from "@/features/accounts/hooks/use-select-account";
 import { toast } from "sonner";
 import { useBulkCreateTransactions } from "@/features/transactions/api/use-bulk-create-transactions";
+import { exportToExcel } from "@/lib/utils";
 
 enum VARIANTS {
   LIST = "LIST",
@@ -159,7 +160,3 @@ const TransactionsPage = () => {
 };
 
 export default TransactionsPage;
-
-function exportToExcel(transactions: { amount: number; id: string; date: string; category: string | null; categoryId: string | null; payee: string; notes: string | null; account: string; accountId: string; }[], arg1: string) {
-  throw new Error("Function not implemented.");
-}
