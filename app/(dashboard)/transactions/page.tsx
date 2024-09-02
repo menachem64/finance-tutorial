@@ -8,7 +8,7 @@ import {
     CardHeader,
     CardTitle
 } from "@/components/ui/card";
-import { Loader2, Plus } from "lucide-react";
+import { Loader2, Plus, Download } from "lucide-react";
 import { columns } from "./columns";
 import { DataTable } from "@/components/data-table";
 import { useGetTransactions } from "@/features/transactions/api/use-get-transactions";
@@ -54,6 +54,10 @@ const TransactionsPage = () => {
     const deleteTransactions = useBulkDeleteTransactions();
     const transactionsQuery = useGetTransactions();
     const transactions = transactionsQuery.data || [];
+
+    const handleExport = () => {
+      exportToExcel(transactions, 'exported_data')
+    };
 
     const isDisabled = 
       transactionsQuery.isLoading ||
@@ -127,6 +131,13 @@ const TransactionsPage = () => {
                    Add new
                  </Button>
                  <UploadButton onUpload={onUpload}/>
+                 <Button 
+                    onClick={handleExport} 
+                    className="w-full lg:w-auto"
+                    >
+                    <Download className="size-4 mr-2"/>
+                      Download to Excel
+                    </Button>
                </div>
             </CardHeader>
             <CardContent>
@@ -148,3 +159,7 @@ const TransactionsPage = () => {
 };
 
 export default TransactionsPage;
+
+function exportToExcel(transactions: { amount: number; id: string; date: string; category: string | null; categoryId: string | null; payee: string; notes: string | null; account: string; accountId: string; }[], arg1: string) {
+  throw new Error("Function not implemented.");
+}
