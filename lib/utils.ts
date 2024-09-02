@@ -1,6 +1,8 @@
 import { type ClassValue, clsx } from "clsx"
 import { eachDayOfInterval, format, isSameDay, subDays } from "date-fns";
-import { twMerge } from "tailwind-merge"
+import { twMerge } from "tailwind-merge";
+import * as XLSX from 'xlsx';
+
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -103,4 +105,26 @@ export function formatPercentage(
   }
 
   return result;
+};
+
+export const exportToExcel = (data: any[], fileName: string) => {
+  const worksheet = XLSX.utils.json_to_sheet(data);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+  
+  // Buffer to store the generated Excel file
+  const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+  
+  const blob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8' });
+  
+  // Create a download link and trigger the download
+  if (typeof window !== 'undefined') {
+    const href = window.URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = href;
+    link.download = `${fileName}.xlsx`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 };
