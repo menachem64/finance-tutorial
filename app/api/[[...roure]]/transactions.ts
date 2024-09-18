@@ -191,7 +191,7 @@ const app = new Hono()
 
     const data = await db
       .with(transactionsToDelete)
-      .delete(categories)
+      .delete(transactions)
       .where(
         inArray(transactions.id, sql`(select id from${transactionsToDelete})`)
       )
